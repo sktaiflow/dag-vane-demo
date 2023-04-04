@@ -9,7 +9,7 @@ from textwrap import dedent
 import pendulum
 from airflow import DAG
 from airflow.providers.sktvane.operators.nes import NesOperator
-from airflow.providers.sktvane.sensors.gcp import BigQueryPartitionSensor
+from airflow.providers.sktvane.sensors.gcp import BigqueryPartitionSensor
 
 
 with DAG(

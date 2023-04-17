@@ -1,6 +1,6 @@
 """
 ### DAG Documentation
-이 DAG는 NES를 사용하는 예제입니다.
+이 DAG는 BigqueryPartitionSensor를 사용하는 예제입니다.
 """
 from __future__ import annotations
 

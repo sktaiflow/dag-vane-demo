@@ -15,7 +15,7 @@ with DAG(
     "dag_hive_partition_sensor",
     default_args={"retries": 2},
     description="DAG with own plugins",
-    schedule="*/2 * * * *",
+    schedule="*/30 * * * *",
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
     tags=["demo"],

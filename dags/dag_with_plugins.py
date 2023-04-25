@@ -17,7 +17,7 @@ with DAG(
     "dag_with_plugins",
     default_args={"retries": 2},
     description="DAG with own plugins",
-    schedule="*/10 * * * *",
+    schedule="*/20 * * * *",
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
     tags=["demo"],

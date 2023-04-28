@@ -25,7 +25,6 @@ with DAG(
 
     sensor = BigqueryPartitionSensor(
         task_id=f"check_bq_partition",
-        project_id="skt-datahub",
         dataset_id="loc",
         table_id="ob_roaming_country",
         partition="dt = '2023-04-01'",

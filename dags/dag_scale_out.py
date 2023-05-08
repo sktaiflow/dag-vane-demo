@@ -23,14 +23,25 @@ with DAG(
         return
 
 
-    start = EmptyOperator(
-        task_id="start",
-    )
+    start_i = None
+    end_i = None
 
-    for i in range(0, 512):
-        start >> PythonOperator(
-            task_id=f"fool_task_{i}",
-            python_callable=fool_fn,
-            email_on_retry=False,
-            email_on_failure=False,
+    for i in range(0, 4):
+        start_i = EmptyOperator(
+            task_id=f"start_{i}",
         )
+
+        if i:
+            end_i >> start_i
+
+        end_i = EmptyOperator(
+            task_id=f"end_{i}",
+        )
+
+        for j in range(0, 256):
+            start_i >> PythonOperator(
+                task_id=f"fool_task_{i}_{j}",
+                python_callable=fool_fn,
+                email_on_retry=False,
+                email_on_failure=False,
+            ) >> end_i

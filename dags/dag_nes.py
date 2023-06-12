@@ -59,7 +59,3 @@ with DAG(
         task_id="check_dags_folder",
         python_callable=check_dags_folder,
     )
-
-    import os
-    print(os.getcwd())
-    print(os.listdir(path='.'))

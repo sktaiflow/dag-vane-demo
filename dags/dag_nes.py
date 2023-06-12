@@ -52,6 +52,7 @@ with DAG(
         import os
         print(os.getcwd())
         print(os.listdir(path='.'))
+        print("DAGS FOLDER: " + kwargs['dag_run'].conf.get("dags_folder"))
 
 
     dir_check_task = PythonOperator(

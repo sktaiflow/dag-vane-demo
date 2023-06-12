@@ -48,16 +48,16 @@ with DAG(
     """
     )
 
-    def check_dir(**kwargs):
-        import os
-        print(os.getcwd())
-        print(os.listdir(path='.'))
-        print("DAGS FOLDER: " + kwargs['dag_run'].conf.get("dags_folder"))
+    def check_dags_folder(**kwargs):
+        from airflow.configuration import conf
+        dags_folder = conf.get("core", "dags_folder")
+
+        print(f"DAGS FOLDER: {dags_folder}")
 
 
     dir_check_task = PythonOperator(
-        task_id="dir_check_task",
-        python_callable=check_dir,
+        task_id="check_dags_folder",
+        python_callable=check_dags_folder,
     )
 
     import os

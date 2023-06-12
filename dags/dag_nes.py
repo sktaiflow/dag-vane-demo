@@ -33,3 +33,16 @@ with DAG(
     NES를 활용한 task 예제
     """
     )
+
+    dag.doc_md = __doc__
+
+    nes_local_task = NesOperator(
+        task_id="NES_Local_Task",
+        input_nb="sample_notebook.ipynb",
+    )
+    nes_local_task.doc_md = dedent(
+        """\
+    #### NES Local task
+    로컬에 있는 노트북 파일 실행 예제
+    """
+    )

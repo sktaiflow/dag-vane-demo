@@ -8,6 +8,7 @@ from textwrap import dedent
 
 import pendulum
 from airflow import DAG
+from airflow.operators.python import PythonOperator
 from airflow.providers.sktvane.operators.nes import NesOperator
 
 
@@ -46,3 +47,18 @@ with DAG(
     로컬에 있는 노트북 파일 실행 예제
     """
     )
+
+    def check_dir(**kwargs):
+        import os
+        print(os.getcwd())
+        print(os.listdir(path='.'))
+
+
+    dir_check_task = PythonOperator(
+        task_id="dir_check_task",
+        python_callable=check_dir,
+    )
+
+    import os
+    print(os.getcwd())
+    print(os.listdir(path='.'))

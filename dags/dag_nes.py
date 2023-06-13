@@ -39,7 +39,7 @@ with DAG(
 
     nes_local_task = NesOperator(
         task_id="NES_Local_Task",
-        input_nb="dags/repo/dags/sample_notebook.ipynb",
+        input_nb="sample_notebook.ipynb",
     )
     nes_local_task.doc_md = dedent(
         """\

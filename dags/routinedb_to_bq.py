@@ -6,10 +6,8 @@
 from datetime import datetime, timedelta
 
 from airflow import DAG
-from airflow.models import Variable
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.sktvane.operators.nes import NesOperator
-from macros.slack import get_slack_notifier
 
 
 collections = [
@@ -28,7 +26,6 @@ with DAG(
         "start_date": datetime(2023, 5, 9),
         "retries": 3,
         "retry_delay": timedelta(minutes=3),
-        "on_failure_callback": get_slack_notifier("jihoonan@sk.com"),
     },
     catchup=False,
     tags=["adot"],

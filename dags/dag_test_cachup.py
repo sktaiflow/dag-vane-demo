@@ -18,7 +18,7 @@ with DAG(
     description="DAG with adot_user",
     schedule="10 8 * * *",
     start_date=pendulum.datetime(2023, 7, 1, tz=pendulum.timezone('Asia/Seoul')),
-    # catchup=True,
+    catchup=True,
     tags=["adot_user"],
 ) as dag:
 

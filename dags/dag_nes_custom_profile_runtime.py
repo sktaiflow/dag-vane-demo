@@ -23,8 +23,10 @@ with DAG(
     dag.doc_md = __doc__
 
     nes_task = NesOperator(
-        task_id="NES_Task",
+        task_id="NES_Custom_Task",
         input_nb="https://github.com/sktaiflow/notebooks/blob/master/test/sample_notebook.ipynb",
+        runtime="ye-k8s-custom",
+        profile="x1112436",
     )
     nes_task.doc_md = dedent(
         """\

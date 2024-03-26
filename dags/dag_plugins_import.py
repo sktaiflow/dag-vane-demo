@@ -19,9 +19,9 @@ with DAG(
     dag_id="dag_plugins_import",
     schedule_interval=None,
     default_args={
-        "owner": "유상기",
+        "owner": "김경민",
         "start_date": datetime(2023, 5, 17),
-        "on_failure_callback": get_fail_alert(email="lapetus@sk.com"),
+        "on_failure_callback": get_fail_alert(email="metsmania@sk.com"),
     },
     catchup=False,
 ) as dag:

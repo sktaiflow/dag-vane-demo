@@ -150,7 +150,10 @@ def get_fail_alert(channel=DEFAULT_SLACK_CHANNEL, email=""):
         block = _generate_fail_block(context, userID)
 
         slack_hook = SktSlackHook(
-            slack_conn_token=get_secrets(path="airflow_k8s/adot_slack/slack_alarmbot_token")[
+            # slack_conn_token=get_secrets(path="airflow_k8s/adot_slack/slack_alarmbot_token")[
+            #     "token"
+            # ],
+            slack_conn_token=get_secrets(path="airflow_k8s/slack/slack_alarmbot_token")[
                 "token"
             ],
             proxy=proxy,
